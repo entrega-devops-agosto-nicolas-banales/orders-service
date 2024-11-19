@@ -21,7 +21,6 @@ jobs:
       dockerhub-token: ${{ secrets.DOCKERHUB_TOKEN }}
       sonar-token: ${{ secrets.SONAR_TOKEN }}
       environment: ${{ github.ref == 'refs/heads/main' && 'prod' || (github.ref == 'refs/heads/develop' && 'dev' || 'test') }}
-    secrets:
-      SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      sonar-host-url: ${{ secrets.SONAR_HOST_URL }}
+      aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

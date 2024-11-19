@@ -1,0 +1,28 @@
+name: Orders Service CI/CD
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - test
+  pull_request:
+    branches:
+      - main
+      - develop
+      - test
+
+jobs:
+  call-backend-ci-cd:
+    uses: entrega-devops-agosto-nicolas-banales/devops-configuration/.github/workflows/backend-ci-cd.yml@main
+    with:
+      service-name: 'orders-service'
+      dockerhub-username: ${{ secrets.DOCKERHUB_USERNAME }}
+      dockerhub-token: ${{ secrets.DOCKERHUB_TOKEN }}
+      sonar-token: ${{ secrets.SONAR_TOKEN }}
+      environment: ${{ github.ref == 'refs/heads/main' && 'prod' || (github.ref == 'refs/heads/develop' && 'dev' || 'test') }}
+    secrets:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

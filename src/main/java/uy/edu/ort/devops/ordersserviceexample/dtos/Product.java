@@ -14,6 +14,7 @@ public class Product {
         this.name = name;
         this.stock = stock;
         this.description = description;
+        
     }
 
     public String getId() {

@@ -11,9 +11,9 @@ import uy.edu.ort.devops.ordersserviceexample.logic.OrdersLogic;
 public class OrdersServiceExampleApplication {
 
 	public static void main(String[] args) {
-		OrdersLogic.setPaymentsServiceUrl(args[0]);
-		OrdersLogic.setShippingServiceUrl(args[1]);
-		OrdersLogic.setProductsServiceUrl(args[2]);
+	OrdersLogic.setPaymentsServiceUrl(System.getenv("PAYMENTS_SERVICE_ENDPOINT"));
+    OrdersLogic.setShippingServiceUrl(System.getenv("SHIPPING_SERVICE_ENDPOINT"));
+    OrdersLogic.setProductsServiceUrl(System.getenv("PRODUCTS_SERVICE_ENDPOINT"));
 
 		SpringApplication.run(OrdersServiceExampleApplication.class, args);
 	}

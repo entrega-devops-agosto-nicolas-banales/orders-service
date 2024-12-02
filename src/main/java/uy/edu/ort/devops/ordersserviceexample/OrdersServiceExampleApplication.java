@@ -11,18 +11,11 @@ import uy.edu.ort.devops.ordersserviceexample.logic.OrdersLogic;
 public class OrdersServiceExampleApplication {
 
 	public static void main(String[] args) {
-		 // Default values for testing
-    String paymentsServiceUrl = "http://payments-service-alb-1611589606.us-east-1.elb.amazonaws.com/payments";
-    String shippingServiceUrl = "http://shipping-service-alb-15976227.us-east-1.elb.amazonaws.com/shipping";
-    String productsServiceUrl = "http://products-service-alb-110946858.us-east-1.elb.amazonaws.com/products";
+		OrdersLogic.setPaymentsServiceUrl(args[0]);
+		OrdersLogic.setShippingServiceUrl(args[1]);
+		OrdersLogic.setProductsServiceUrl(args[2]);
 
-
-    // Set the URLs in the OrdersLogic
-    OrdersLogic.setPaymentsServiceUrl(paymentsServiceUrl);
-    OrdersLogic.setShippingServiceUrl(shippingServiceUrl);
-    OrdersLogic.setProductsServiceUrl(productsServiceUrl);
-
-    SpringApplication.run(OrdersServiceExampleApplication.class, args);
+		SpringApplication.run(OrdersServiceExampleApplication.class, args);
 	}
 
 	@Bean

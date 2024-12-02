@@ -10,20 +10,10 @@ import uy.edu.ort.devops.ordersserviceexample.logic.OrdersLogic;
 @SpringBootApplication
 public class OrdersServiceExampleApplication {
 
-	public static void main(String[] args) {
-    String paymentsServiceUrl = "http://payments-service-alb-1611589606.us-east-1.elb.amazonaws.com";
-    String shippingServiceUrl = "http://shipping-service-alb-15976227.us-east-1.elb.amazonaws.com";
-    String productsServiceUrl = "http://products-service-alb-110946858.us-east-1.elb.amazonaws.com";
-
-    if (args.length > 0) {
-        paymentsServiceUrl = args[0];
-    }
-    if (args.length > 1) {
-        shippingServiceUrl = args[1];
-    }
-    if (args.length > 2) {
-        productsServiceUrl = args[2];
-    }
+	public static void main() {
+    String paymentsServiceUrl = "http://payments-service-alb-1611589606.us-east-1.elb.amazonaws.com/payments";
+    String shippingServiceUrl = "http://shipping-service-alb-15976227.us-east-1.elb.amazonaws.com/shipping";
+    String productsServiceUrl = "http://products-service-alb-110946858.us-east-1.elb.amazonaws.com/products";
 
     OrdersLogic.setPaymentsServiceUrl(paymentsServiceUrl);
     OrdersLogic.setShippingServiceUrl(shippingServiceUrl);

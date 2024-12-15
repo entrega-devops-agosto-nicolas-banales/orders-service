@@ -69,7 +69,7 @@ public class OrdersLogic {
             if (paymentStatus.isSuccess()) {
                 logger.info("Payment ok.");
                 addShipping(orderId);
-                return new OrderStatus(orderId, true, "Ok.");
+                return new OrderStatus(orderId, true, "Order created successfully!");
             } else {
                 logger.info("Error in payment: " + paymentStatus.getDescription());
                 return new OrderStatus(orderId, false, paymentStatus.getDescription());
